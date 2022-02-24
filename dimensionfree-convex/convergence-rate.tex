@@ -1,1 +1,242 @@
+C. Albert Thompson
+Home
+Papers
+Classes
+Tools
+FAQ
+Online Latex Formatter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use the koma-script document style
+%\documentclass{scrbook}
+%\KOMAoptions{twoside=false} % disable two-side formatting for scrbook
+% alternatively, for shorter essay, use the following
+\documentclass{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Useful packages
+\usepackage{mathtools}
+\usepackage{amssymb,bm,bbold}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{enumerate}
+
+\usepackage{fullpage}
+
+\usepackage[font=scriptsize,labelfont=bf]{caption}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepackage[]{natbib}
+\bibliographystyle{chicago}
+
+%=================================
+% pre-defined theorem environments
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem*{remark}{Remark}
+\newtheorem*{assumption}{Assumption}
+
+\usepackage[framemethod=tikz]{mdframed}
+\newmdtheoremenv[
+skipabove=\baselineskip,
+skipbelow=\baselineskip,
+hidealllines=true,
+innertopmargin=4pt,
+linewidth=4pt,
+linecolor=gray!40,
+singleextra={
+  \draw[line width=3pt,gray!50,line cap=rect] (O|-P) -- +(1cm,0pt);
+  \draw[line width=3pt,gray!50,line cap=rect] (O|-P) -- +(0pt,-1cm);
+  \draw[line width=3pt,gray!50,line cap=rect] (O-|P) -- +(-1cm,0pt);
+  \draw[line width=3pt,gray!50,line cap=rect] (O-|P) -- +(0pt,1cm);
+  },
+firstextra={
+  \draw[line width=3pt,gray!50,line cap=rect] (O|-P) -- +(1cm,0pt);
+  \draw[line width=3pt,gray!50,line cap=rect] (O|-P) -- +(0pt,-1cm);
+},
+secondextra={
+  \draw[line width=3pt,gray!50,line cap=rect] (O-|P) -- +(-1cm,0pt);
+  \draw[line width=3pt,gray!50,line cap=rect] (O-|P) -- +(0pt,1cm);
+}
+]{problem}{Problem}
+
+%=================================
+% useful commands
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\supp}{supp}
+\DeclareMathOperator*{\minimize}{\mathsf{minimize}}
+
+\def\vec#1{{\ensuremath{\bm{{#1}}}}}
+\def\mat#1{\vec{#1}}
+
+%=================================
+% convenient notations
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\sB}{\mathcal{B}}
+\newcommand{\sK}{\mathcal{K}}
+\newcommand{\sL}{\mathcal{L}}
+\newcommand{\sX}{\mathcal{X}}
+
+\newcommand{\TODO}{\textbf{\textsf{TODO}}}
+
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Typography, change document font
+%\usepackage[libertine,cmintegrals,cmbraces,vvarbb]{newtxmath}
+%\usepackage[scaled=0.95]{inconsolata}
+\usepackage{lmodern}
+\usepackage{charter}
+\usepackage[scaled=0.95]{inconsolata}
+
+\title{Intuitions for Convex Optimization}
+\author{pluskid}
+
+\begin{document}
+
+Proof. Letting $x=x_{t}$ we have
+$$
+\begin{aligned}
+\left\|x_{t+1}-x^{*}\right\|^{2} &=\left\|x-x^{*}-\gamma \nabla_{x} f\right\|^{2} \\
+&=\left\|x-x^{*}\right\|^{2}-2 \gamma\left(\nabla_{x} f\right)^{\top}\left(x-x^{*}\right)+\gamma^{2}\left\|\nabla_{x} f\right\|^{2} \\
+&=\left\|x-x^{*}\right\|^{2}-2 \gamma\left[\ell_{x}(x)-\ell_{x}\left(x^{*}\right)\right]+\gamma^{2}\left\|\nabla_{x} f\right\|^{2} \\
+& \leq\left\|x-x^{*}\right\|^{2}-2 \gamma\left(f(x)-f\left(x^{*}\right)\right)+\gamma^{2}\left\|\nabla_{x} f\right\|^{2}
+\end{aligned}
+$$
+The proof concludes by observing that the $L$-Lipschitz property of $f$ implies $\left\|\nabla_{x} f\right\| \leq L$.
+Let $\Phi(t)=\left\|x^{t}-x^{*}\right\|^{2}$. When $\gamma=\varepsilon / L^{2}$, the lemma implies that whenever $f\left(x_{t}\right)>f\left(x^{*}\right)+\varepsilon$, we have
+$$
+\Phi(t)-\Phi(t+1)>2 \gamma \varepsilon-\gamma^{2} L^{2}=\varepsilon^{2} / L^{2} .
+$$
+Since $\Phi(0) \leq D$ and $\Phi(t) \geq 0$ for all $t$, the equation (1) cannot be satisfied for all $0 \leq t \leq L^{2} D^{2} / \varepsilon^{2}$. Hence, if we run gradient descent for $T=L^{2} D^{2} / \varepsilon^{2}$ iterations, it succeeds in finding a point $\tilde{x}$ such that $f(\tilde{x}) \leq f\left(x^{*}\right)+\varepsilon$.
+\end{document}
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use the koma-script document style
+%\documentclass{scrbook}
+%\KOMAoptions{twoside=false} % disable two-side formatting for scrbook
+% alternatively, for shorter essay, use the following
+\documentclass{scrartcl}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Useful packages
+\usepackage{mathtools}
+\usepackage{amssymb,bm,bbold}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{enumerate}
+
+\usepackage{fullpage}
+
+\usepackage[font=scriptsize,labelfont=bf]{caption}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usepackage[]{natbib}
+\bibliographystyle{chicago}
+
+%=================================
+% pre-defined theorem environments
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+\newtheorem*{remark}{Remark}
+\newtheorem*{assumption}{Assumption}
+
+\usepackage[framemethod=tikz]{mdframed}
+\newmdtheoremenv[
+skipabove=\baselineskip,
+skipbelow=\baselineskip,
+hidealllines=true,
+innertopmargin=4pt,
+linewidth=4pt,
+linecolor=gray!40,
+singleextra={
+  \draw[line width=3pt,gray!50,line cap=rect] (O|-P) -- +(1cm,0pt);
+  \draw[line width=3pt,gray!50,line cap=rect] (O|-P) -- +(0pt,-1cm);
+  \draw[line width=3pt,gray!50,line cap=rect] (O-|P) -- +(-1cm,0pt);
+  \draw[line width=3pt,gray!50,line cap=rect] (O-|P) -- +(0pt,1cm);
+  },
+firstextra={
+  \draw[line width=3pt,gray!50,line cap=rect] (O|-P) -- +(1cm,0pt);
+  \draw[line width=3pt,gray!50,line cap=rect] (O|-P) -- +(0pt,-1cm);
+},
+secondextra={
+  \draw[line width=3pt,gray!50,line cap=rect] (O-|P) -- +(-1cm,0pt);
+  \draw[line width=3pt,gray!50,line cap=rect] (O-|P) -- +(0pt,1cm);
+}
+]{problem}{Problem}
+
+%=================================
+% useful commands
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\supp}{supp}
+\DeclareMathOperator*{\minimize}{\mathsf{minimize}}
+
+\def\vec#1{{\ensuremath{\bm{{#1}}}}}
+\def\mat#1{\vec{#1}}
+
+%=================================
+% convenient notations
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+
+\newcommand{\sB}{\mathcal{B}}
+\newcommand{\sK}{\mathcal{K}}
+\newcommand{\sL}{\mathcal{L}}
+\newcommand{\sX}{\mathcal{X}}
+
+\newcommand{\TODO}{\textbf{\textsf{TODO}}}
+
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Typography, change document font
+%\usepackage[libertine,cmintegrals,cmbraces,vvarbb]{newtxmath}
+%\usepackage[scaled=0.95]{inconsolata}
+\usepackage{lmodern}
+\usepackage{charter}
+\usepackage[scaled=0.95]{inconsolata}
+
+\title{Intuitions for Convex Optimization}
+\author{pluskid}
+
+\begin{document}
+
+Proof. Letting $x=x_{t}$ we have
+$$
+\begin{aligned}
+	\left\|x_{t+1}-x^{*}\right\|^{2} & =\left\|x-x^{*}-\gamma \nabla_{x} f\right\|^{2}                                                                                    \\
+	                                 & =\left\|x-x^{*}\right\|^{2}-2 \gamma\left(\nabla_{x} f\right)^{\top}\left(x-x^{*}\right)+\gamma^{2}\left\|\nabla_{x} f\right\|^{2} \\
+	                                 & =\left\|x-x^{*}\right\|^{2}-2 \gamma\left[\ell_{x}(x)-\ell_{x}\left(x^{*}\right)\right]+\gamma^{2}\left\|\nabla_{x} f\right\|^{2}  \\
+	                                 & \leq\left\|x-x^{*}\right\|^{2}-2 \gamma\left(f(x)-f\left(x^{*}\right)\right)+\gamma^{2}\left\|\nabla_{x} f\right\|^{2}             
+\end{aligned}
+$$
+The proof concludes by observing that the $L$-Lipschitz property of $f$ implies $\left\|\nabla_{x} f\right\| \leq L$.
+Let $\Phi(t)=\left\|x^{t}-x^{*}\right\|^{2}$. When $\gamma=\varepsilon / L^{2}$, the lemma implies that whenever $f\left(x_{t}\right)>f\left(x^{*}\right)+\varepsilon$, we have
+$$
+\Phi(t)-\Phi(t+1)>2 \gamma \varepsilon-\gamma^{2} L^{2}=\varepsilon^{2} / L^{2} .
+$$
+Since $\Phi(0) \leq D$ and $\Phi(t) \geq 0$ for all $t$, the equation (1) cannot be satisfied for all $0 \leq t \leq L^{2} D^{2} / \varepsilon^{2}$. Hence, if we run gradient descent for $T=L^{2} D^{2} / \varepsilon^{2}$ iterations, it succeeds in finding a point $\tilde{x}$ such that $f(\tilde{x}) \leq f\left(x^{*}\right)+\varepsilon$.
+\end{document}
+© C. Albert Thompson 2016 | This page was made possible by CMH and latexindent.pl
