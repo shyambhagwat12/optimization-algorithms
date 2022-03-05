@@ -9,3 +9,5 @@ Convex Optimization – Boyd and Vandenberghe - downloadable book
 
 Theory of Convex Optimization for Machine Learning - downloadable book by Sebastien Bubeck
 http://sbubeck.com/BubeckLectureNotes.pdf
+
+$x^2$
