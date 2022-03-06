@@ -4,9 +4,9 @@
 **Key features:**
 1. Improves at every iteration
 2. Can take large step size - self tuning property (Smoothness property of cvx)
-3. It can take bigger step size when far away from x* (Stongness property of cvx)
+3. It can take bigger step size when far away from x* (Strongness property of cvx)
 
-**Gradient descent update step - f convex and L-Liptschitz β smooth α strongly convex**
+**Gradient descent update step - f convex and L-Liptschitz Continuity β smooth α strongly convex**
 
 <!-- $$
 xk+1 = xk − γ∇f(xk)
@@ -48,7 +48,7 @@ $$ -->
 Convergence rate - $O(exp(-T))$
 
 
-**Useful Lemmmas**
+**Useful Lemmas**
 
 Function Lipschitz continuity -  Let L ≥ 0. A real-valued function f is L-Lipschitz continuous iff ∀x, y ∈ dom f,
 <!-- $$
