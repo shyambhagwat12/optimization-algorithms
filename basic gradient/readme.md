@@ -28,13 +28,22 @@ $$ -->
 <br>
 
 
-
 **step size - β smooth α Strongly convex**
 <!-- $$
-γ = 2/β+α \\β=2\lambda_{max}(Q) \\α =2\lambda_{min}(Q)
+γ = 2/β+α
 $$ --> 
 
-<div align="center"><img style="background: white;" src="../svg/fpzmfEmzrQ.svg"></div>
+<div align="center"><img style="background: white;" src="../svg/BW1JUZq8te.svg"></div>
+<!-- $$
+β=2\lambda_{max}(Q)
+$$ --> 
+
+<div align="center"><img style="background: white;" src="../svg/SUwIJklxIR.svg"></div>
+<!-- $$
+α =2\lambda_{min}(Q)
+$$ --> 
+
+<div align="center"><img style="background: white;" src="../svg/L8TpfMdNmp.svg"></div>
 
 Convergence rate - $O(exp(-T))$
 
