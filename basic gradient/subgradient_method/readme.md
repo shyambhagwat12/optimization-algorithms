@@ -1,5 +1,5 @@
 
-# Basic Subgradient method
+# Basic Subgradient method Lipschitz Cvx
 
 **Key features:**
 1. For non smooth functions, basic subgradient method provides $\epsilon$ accurate solutions

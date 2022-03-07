@@ -45,7 +45,18 @@ $$ -->
 
 <div align="center"><img style="background: white;" src="../../svg/L8TpfMdNmp.svg"></div>
 
-Convergence rate - $O(exp(-T))$
+Convergence rate/ Oracle Lower bound: - 
+<!-- $$
+O((K-1/K+1)^T)
+$$ --> 
+where k = β / α
+
+<!-- $$
+O((\sqrt(K)-1/ \sqrt(K)+1)^T)
+$$ --> 
+
+<div align="center"><img style="background: white;" src="../../svg/mNuRopHGoN.svg"></div>
+<div align="center"><img style="background: white;" src="../../svg/TjFiIo5IX3.svg"></div>
 
 
 **Useful Lemmas**
