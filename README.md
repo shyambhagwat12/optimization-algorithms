@@ -1,12 +1,23 @@
 Alogrithms for Convex functions.
 
-Reference:
+Notes from C395_Lecture_Online_learning_Optimization
+
+Other Reference material:
+
+Convex Optimization – Boyd and Vandenberghe 
 
 https://web.stanford.edu/class/ee364a/
 
-Convex Optimization – Boyd and Vandenberghe - downloadable book
 
+Theory of Convex Optimization for Machine Learning - sebastian bubeck
 
-Theory of Convex Optimization for Machine Learning - downloadable book by Sebastien Bubeck
 http://sbubeck.com/BubeckLectureNotes.pdf
 
+<br>
+<br>
+<br>
+<br>
+
+(Below reference taken from s bubeck's book)
+
+<div align="center"><img style="background: white;" src="resultsSummary.png"></div>
