@@ -41,7 +41,7 @@ $$ -->
 <div align="center"><img style="background: white;" src="../../svg/85Xyd74ux5.svg"></div>
 
 
-Example - Projection onto simplex
+Example - Projection onto simplex , Projection onto L2 Euclidian(Divide by L2 norm),L1 , Infinity Ball etc
 
 Note:
 1. This is not dimension independent. 

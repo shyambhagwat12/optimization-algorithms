@@ -38,6 +38,8 @@ when h(x) is below indicator function , we get back projection
   \begin{cases}+ \infty ~&{\text{ if }}~x\notin X~,\\0~&{\text{ if }}~x\in X~.\end{cases}\
 $$ --> 
 
+Objective: To make sure h(x) is small , and in case its far away from y, then the quadratic term penalizes for x going far away from y.
+
 <div align="center"><img style="background: white;" src="../../svg/K8QAK5pHKP.svg"></div>
 Convergence Rate - Proximal - smooth:
 <!-- $$
